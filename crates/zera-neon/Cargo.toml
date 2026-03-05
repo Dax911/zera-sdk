@@ -1,0 +1,19 @@
+[package]
+name = "zera-neon"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "ZERA SDK Node.js bindings via napi-rs"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+zera-core.workspace = true
+napi = { version = "2", features = ["napi8"] }
+napi-derive = "2"
+serde_json = "1"
+hex = "0.4"
+
+[build-dependencies]
+napi-build = "2"
