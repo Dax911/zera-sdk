@@ -1,0 +1,21 @@
+{
+  "name": "@zera-labs/mcp-server",
+  "version": "0.1.0",
+  "description": "ZERA Confidential SDK - MCP Server for private payments via AI agents",
+  "type": "module",
+  "bin": { "zera-mcp": "./dist/index.js" },
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "@zera-labs/sdk": "workspace:*",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "tsx": "^4.0.0"
+  }
+}
