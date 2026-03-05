@@ -1,0 +1,45 @@
+{
+  "name": "@zera-labs/sdk",
+  "version": "0.1.0",
+  "description": "ZERA Confidential SDK - Poseidon hashing, shielded notes, Merkle trees, ZK provers, and transaction builders for the ZERA private cash protocol on Solana",
+  "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc -p tsconfig.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "circomlibjs": "^0.1.7",
+    "snarkjs": "^0.7.5",
+    "@solana/web3.js": "^1.98.0",
+    "@coral-xyz/anchor": "^0.32.1",
+    "@noble/hashes": "^1.7.1",
+    "bs58": "^6.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.0",
+    "@types/node": "^22.0.0"
+  }
+}
