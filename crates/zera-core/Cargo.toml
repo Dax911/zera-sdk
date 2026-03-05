@@ -1,0 +1,24 @@
+[package]
+name = "zera-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "ZERA Confidential SDK - cryptographic primitives for shielded pools on Solana"
+
+[features]
+default = []
+solana = ["dep:solana-program"]
+
+[dependencies]
+light-poseidon.workspace = true
+ark-bn254.workspace = true
+ark-ff.workspace = true
+groth16-solana.workspace = true
+solana-program = { workspace = true, optional = true }
+serde.workspace = true
+borsh.workspace = true
+thiserror.workspace = true
+rand.workspace = true
+
+[dev-dependencies]
+num-bigint = "0.4"
