@@ -1,0 +1,26 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/zera-core",
+    "crates/zera-neon",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/Zera-Labs/zera-sdk"
+description = "ZERA Confidential SDK - Privacy-preserving transaction primitives for Solana"
+
+[workspace.dependencies]
+zera-core = { path = "crates/zera-core" }
+light-poseidon = "0.4"
+ark-bn254 = "0.5.0"
+ark-ff = "0.5.0"
+groth16-solana = "0.2.0"
+solana-program = "1.18"
+borsh = { version = "0.10", features = ["bytes"] }
+serde = { version = "1", features = ["derive"] }
+thiserror = "1"
+rand = "0.8"
+hex = "0.4"

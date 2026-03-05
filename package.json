@@ -1,0 +1,26 @@
+{
+  "name": "zera-sdk-monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "pnpm -r build",
+    "build:rust": "cargo build --release",
+    "build:neon": "cd crates/zera-neon && npm run build",
+    "build:sdk": "cd packages/sdk && pnpm build",
+    "build:mcp": "cd packages/mcp-server && pnpm build",
+    "test": "pnpm -r test",
+    "test:rust": "cargo test",
+    "clean": "cargo clean && pnpm -r clean",
+    "lint": "pnpm -r lint"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=9"
+  },
+  "packageManager": "pnpm@9.15.0"
+}
