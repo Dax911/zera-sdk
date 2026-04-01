@@ -1,0 +1,14 @@
+name: ZERA Devnet
+id: zera-devnet
+description: "Local Solana fork with Light Protocol ZK Compression + ZERA Shielded Pool"
+
+runbooks:
+  - name: setup_light_protocol
+    path: ./runbooks/setup_light.tx
+
+  - name: zera_pool_subgraph
+    path: ./runbooks/zera_subgraph.tx
+
+environments:
+  localnet:
+    network_id: "mainnet"

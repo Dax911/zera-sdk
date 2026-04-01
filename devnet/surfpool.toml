@@ -1,0 +1,76 @@
+# ZERA SDK — Surfpool Network Configuration
+# 1:1 Solana mainnet fork with Light Protocol ZK Compression + ZERA Pool
+#
+# Hosted devnet:  http://64.34.82.145:18899 (RPC)
+#                 ws://64.34.82.145:18900 (WebSocket)
+#
+# Local usage:    surfpool start --manifest-file-path ./txtx.yml
+
+[network]
+rpc_url = "http://127.0.0.1:8899"
+ws_url = "ws://127.0.0.1:8900"
+
+# -------------------------------------------------------------------------
+# PROGRAMS (Light Protocol + Dependencies)
+# -------------------------------------------------------------------------
+
+[[programs.external]]
+address = "compr6CUsB5m2jS4Y3831ztGSTnDpnKJTKS95d64XVq"
+label = "Account Compression"
+
+[[programs.external]]
+address = "noopb9bkMVfRPU8AsbpTUg8AQkHtKwDKGTGHb22Gqs"
+label = "SPL Noop"
+
+[[programs.external]]
+address = "SySTEM1eSU2p4BGQfQpimFEWWSC1XDFeun3Nqzz3rT7"
+label = "Light System Program"
+
+[[programs.external]]
+address = "cTokenmWW8bLPjZEBAUgYy3zKxQZW6VKi7bqNFEVv3m"
+label = "Light Token Program"
+
+# -------------------------------------------------------------------------
+# LIGHT PROTOCOL STATE TREES
+# -------------------------------------------------------------------------
+
+[[accounts]]
+address = "bmt1LryLZUMmF7ZtqESaw7wifBXLfXHQYoE4GAmrahU"
+label = "State Tree #1"
+
+[[accounts]]
+address = "oq1na8gojfdUhsfCpyjNt6h4JaDWtHf1yQj4koBWfto"
+label = "Output Queue #1"
+
+[[accounts]]
+address = "amt2kaJA14v3urZbZvnc5v2np8jqvc4Z8zDep5wbtzx"
+label = "Address Tree"
+
+# -------------------------------------------------------------------------
+# ASSETS (Tokens)
+# -------------------------------------------------------------------------
+
+[[accounts]]
+address = "8avjtjHAHFqp4g2RR9ALAGBpSTqKPZR8nRbzSTwZERA"
+label = "ZERA"
+
+[[accounts]]
+address = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+label = "USDC"
+
+[[accounts]]
+address = "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB"
+label = "USDT"
+
+[[accounts]]
+address = "So11111111111111111111111111111111111111112"
+label = "Wrapped SOL"
+
+# -------------------------------------------------------------------------
+# ZERA POOL (Shielded Pool Protocol)
+# -------------------------------------------------------------------------
+
+[[programs.local]]
+address = "B83jSQx1CT1hPRBupinaJaEkCjrfeo6Ktncu31q3ZNeX"
+path = "./accounts_dump/zera_pool.so"
+label = "ZERA Pool"

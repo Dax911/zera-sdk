@@ -1,0 +1,53 @@
+addon "svm" {
+  network = input.network_id
+  rpc_url = "http://127.0.0.1:8899"
+  ws_url = "ws://127.0.0.1:8900"
+}
+
+action "clone_programs" "svm::setup_surfnet" {
+    description = "Cloning Light Protocol Programs & SPL Dependencies"
+
+    clone_program_account = {
+        source_program_id      = "SySTEM1eSU2p4BGQfQpimFEWWSC1XDFeun3Nqzz3rT7"
+        destination_program_id = "SySTEM1eSU2p4BGQfQpimFEWWSC1XDFeun3Nqzz3rT7"
+    }
+
+    clone_program_account = {
+        source_program_id      = "cTokenmWW8bLPjZEBAUgYy3zKxQZW6VKi7bqNFEVv3m"
+        destination_program_id = "cTokenmWW8bLPjZEBAUgYy3zKxQZW6VKi7bqNFEVv3m"
+    }
+
+    clone_program_account = {
+        source_program_id      = "compr6CUsB5m2jS4Y3831ztGSTnDpnKJTKS95d64XVq"
+        destination_program_id = "compr6CUsB5m2jS4Y3831ztGSTnDpnKJTKS95d64XVq"
+    }
+
+    clone_program_account = {
+        source_program_id      = "noopb9bkMVfRPU8AsbpTUg8AQkHtKwDKGTGHb22Gqs"
+        destination_program_id = "noopb9bkMVfRPU8AsbpTUg8AQkHtKwDKGTGHb22Gqs"
+    }
+}
+
+action "clone_state_trees" "svm::setup_surfnet" {
+    description = "Cloning State Trees & Queues (Resetting forces fetch from Mainnet)"
+
+    reset_account = [
+        "bmt1LryLZUMmF7ZtqESaw7wifBXLfXHQYoE4GAmrahU",
+        "oq1na8gojfdUhsfCpyjNt6h4JaDWtHf1yQj4koBWfto",
+        "cpi15BoVPKgEPw5o8wc2T816GE7b378nMXnhH3Xbq4y",
+
+        "bmt2UxoBxB9xWev4BkLvkGdapsz6sZGkzViPNph7VFi",
+        "oq2UkeMsJLfXt2QHzim242SUi3nvjJs8Pn7Eac9H9vg",
+        "cpi2yGapXUR3As5SjnHBAVvmApNiLsbeZpF3euWnW6B",
+
+        "bmt3ccLd4bqSVZVeCJnH1F6C8jNygAhaDfxDwePyyGb",
+        "oq3AxjekBWgo64gpauB6QtuZNesuv19xrhaC1ZM1THQ",
+        "cpi3mbwMpSX8FAGMZVP85AwxqCaQMfEk9Em1v8QK9Rf",
+
+        "amt2kaJA14v3urZbZvnc5v2np8jqvc4Z8zDep5wbtzx",
+
+        "GXtd2izAiMJPwMEjfgTRH3d7k9mjn4Jq3JrWFv9gySYy",
+
+        "9NYFyEqPkyXUhkerbGHXUXkvb4qpzeEdHuGpgbgpH1NJ"
+    ]
+}

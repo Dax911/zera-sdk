@@ -48,7 +48,7 @@ export const PRIVATE_CASH_PROGRAM_ID =
 
 /** Shielded-pool (ZK) program – uses Poseidon commitments + Groth16 proofs. */
 export const SHIELDED_POOL_PROGRAM_ID =
-  "ESQxpH9XkBQT6EVeWwAzTZD1e9NrLMrY8RPQ9SidYsgF";
+  "B83jSQx1CT1hPRBupinaJaEkCjrfeo6Ktncu31q3ZNeX";
 
 // ---------------------------------------------------------------------------
 // PDA seeds (must match the on-chain constants byte-for-byte)

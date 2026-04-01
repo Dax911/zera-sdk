@@ -1,0 +1,127 @@
+addon "svm" {
+  network  = input.network_id
+  rpc_url  = "http://127.0.0.1:8899"
+  ws_url   = "ws://127.0.0.1:8900"
+}
+
+action "deploy_zera" "svm::deploy_program" {
+  description = "Deploying ZERA Pool shielded pool program"
+  program     = svm::get_program_from_path("./accounts_dump/zera_pool.so", "B83jSQx1CT1hPRBupinaJaEkCjrfeo6Ktncu31q3ZNeX")
+  idl         = svm::get_idl_from_path("./accounts_dump/zera_pool.json")
+}
+
+action "pool_config_index" "svm::deploy_subgraph" {
+  description    = "ZERA Pool Config - tracks deposits, withdrawals, and pool state"
+  subgraph_name  = "zera-pool-config"
+
+  program_id   = action.deploy_zera.program_id
+  program_idl  = action.deploy_zera.program_idl
+  block_height = action.deploy_zera.block_height
+
+  pda {
+    name = "PoolConfig"
+
+    instruction {
+      name    = "initialize"
+      account = "pool_config"
+    }
+    instruction {
+      name    = "deposit"
+      account = "pool_config"
+    }
+    instruction {
+      name    = "withdraw"
+      account = "pool_config"
+    }
+    instruction {
+      name    = "shielded_transfer"
+      account = "pool_config"
+    }
+    instruction {
+      name    = "close_pool"
+      account = "pool_config"
+    }
+
+    field {
+      name        = "authority"
+      description = "Pool admin public key"
+    }
+    field {
+      name        = "token_mint"
+      description = "USDC mint address"
+    }
+    field {
+      name        = "total_deposited"
+      alias       = "deposits"
+      description = "Cumulative USDC deposited into the shielded pool"
+    }
+    field {
+      name        = "total_withdrawn"
+      alias       = "withdrawals"
+      description = "Cumulative USDC withdrawn from the shielded pool"
+    }
+  }
+}
+
+action "merkle_tree_index" "svm::deploy_subgraph" {
+  description    = "ZERA Merkle Tree - tracks root hash and commitment count"
+  subgraph_name  = "zera-merkle-tree"
+
+  program_id   = action.deploy_zera.program_id
+  program_idl  = action.deploy_zera.program_idl
+  block_height = action.deploy_zera.block_height
+
+  pda {
+    name = "MerkleTreeState"
+
+    instruction {
+      name    = "initialize"
+      account = "merkle_tree"
+    }
+    instruction {
+      name    = "deposit"
+      account = "merkle_tree"
+    }
+    instruction {
+      name    = "shielded_transfer"
+      account = "merkle_tree"
+    }
+    instruction {
+      name    = "close_pool"
+      account = "merkle_tree"
+    }
+
+    field {
+      name        = "root"
+      description = "Current Merkle tree root hash"
+    }
+    field {
+      name        = "leaf_count"
+      alias       = "total_commitments"
+      description = "Total number of note commitments in the tree"
+    }
+    field {
+      name        = "root_history_index"
+      description = "Position in the circular root history buffer"
+    }
+  }
+}
+
+action "events_index" "svm::deploy_subgraph" {
+  description    = "ZERA Protocol Events - full transaction history"
+  subgraph_name  = "zera-events"
+
+  program_id   = action.deploy_zera.program_id
+  program_idl  = action.deploy_zera.program_idl
+  block_height = action.deploy_zera.block_height
+
+  event {
+    name = "DepositEvent"
+  }
+  event {
+    name = "WithdrawEvent"
+  }
+  event {
+    name = "TransferEvent"
+  }
+}
