@@ -41,5 +41,26 @@
     "typescript": "^5.7.3",
     "vitest": "^3.0.0",
     "@types/node": "^22.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zera-Labs/zera-sdk.git",
+    "directory": "packages/sdk"
+  },
+  "homepage": "https://github.com/Zera-Labs/zera-sdk#readme",
+  "bugs": {
+    "url": "https://github.com/Zera-Labs/zera-sdk/issues"
+  },
+  "author": "Zera Labs",
+  "keywords": [
+    "solana",
+    "privacy",
+    "zk-proofs",
+    "groth16",
+    "poseidon",
+    "merkle-tree",
+    "shielded-pool",
+    "confidential",
+    "zero-knowledge"
+  ]
 }

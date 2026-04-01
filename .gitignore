@@ -28,3 +28,15 @@ Thumbs.db
 # Build artifacts
 *.wasm
 *.zkey
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Surfpool runtime
+.surfpool/logs/
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*

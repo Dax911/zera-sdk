@@ -314,15 +314,13 @@ If you discover a security vulnerability in the ZERA protocol, SDK, or smart con
 
 1. **Do NOT** disclose the vulnerability publicly (including GitHub issues, social media, or forums).
 
-2. **Email** security@zeralabs.io with:
+2. **Open a private vulnerability report** on GitHub via [Security Advisories](https://github.com/Zera-Labs/zera-sdk/security/advisories/new), or email security@zeralabs.io with:
    - A detailed description of the vulnerability
    - Steps to reproduce
    - Potential impact assessment
    - Suggested fix (if any)
 
-3. **Encrypt** your report using the PGP key published at https://zeralabs.io/.well-known/security.txt
-
-4. You will receive an acknowledgment within **48 hours** and a detailed response within **7 business days**.
+3. You will receive an acknowledgment within **48 hours** and a detailed response within **7 business days**.
 
 ### Scope
 
@@ -344,7 +342,7 @@ The following are in scope for responsible disclosure:
 
 ### Bug Bounty
 
-A formal bug bounty program will be established prior to mainnet production launch. Details will be published at https://zeralabs.io/security.
+A formal bug bounty program has not yet been established. If you discover a vulnerability, please report it via the disclosure process above.
 
 ### Safe Harbor
 

@@ -650,7 +650,8 @@ const proofResult = await generateWithdrawProof(
 );
 
 // Send proof to a relayer service instead of submitting directly
-const relayerResponse = await fetch("https://relayer.zera.fi/relay", {
+// NOTE: Replace with your relayer endpoint (self-hosted or third-party)
+const relayerResponse = await fetch("https://your-relayer.example.com/relay", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({
@@ -680,7 +681,7 @@ import { TreeStateClient, MerkleTree } from "@zera-labs/sdk";
 
 const treeClient = new TreeStateClient({
   rpcUrl: "https://api.mainnet-beta.solana.com",
-  cacheEndpoint: "https://api.zera.fi",  // optional, faster
+  cacheEndpoint: undefined,  // optional: set to your cache endpoint for faster sync
 });
 
 // Fetch all leaves and rebuild the tree

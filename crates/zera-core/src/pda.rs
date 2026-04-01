@@ -24,7 +24,6 @@ use crate::constants::{
 #[cfg(not(feature = "solana"))]
 fn find_pda(seeds: &[&[u8]], program_id: &[u8; 32]) -> crate::error::Result<([u8; 32], u8)> {
     // We iterate bump from 255 down to 0 (matching Solana's convention).
-    use std::io::Write;
     for bump in (0u8..=255).rev() {
         let mut hasher = sha2_hasher();
         for seed in seeds {

@@ -17,5 +17,24 @@
   "devDependencies": {
     "typescript": "^5.3.0",
     "tsx": "^4.0.0"
-  }
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zera-Labs/zera-sdk.git",
+    "directory": "packages/mcp-server"
+  },
+  "homepage": "https://github.com/Zera-Labs/zera-sdk#readme",
+  "bugs": {
+    "url": "https://github.com/Zera-Labs/zera-sdk/issues"
+  },
+  "author": "Zera Labs",
+  "keywords": [
+    "solana",
+    "privacy",
+    "mcp",
+    "ai-agents",
+    "confidential",
+    "model-context-protocol"
+  ]
 }

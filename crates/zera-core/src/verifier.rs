@@ -14,6 +14,7 @@
 
 use borsh::{BorshDeserialize, BorshSerialize};
 use serde::{Deserialize, Serialize};
+use serde_big_array::BigArray;
 
 // ---------------------------------------------------------------------------
 // ProofData (on-chain format)
@@ -25,10 +26,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, BorshSerialize, BorshDeserialize)]
 pub struct ProofData {
     /// G1 affine point A (64 bytes, uncompressed big-endian).
+    #[serde(with = "BigArray")]
     pub proof_a: [u8; 64],
     /// G2 affine point B (128 bytes, uncompressed big-endian).
+    #[serde(with = "BigArray")]
     pub proof_b: [u8; 128],
     /// G1 affine point C (64 bytes, uncompressed big-endian).
+    #[serde(with = "BigArray")]
     pub proof_c: [u8; 64],
 }
 

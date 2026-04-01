@@ -21,6 +21,7 @@ groth16-solana = "0.2.0"
 solana-program = "1.18"
 borsh = { version = "0.10", features = ["bytes"] }
 serde = { version = "1", features = ["derive"] }
+serde-big-array = "0.5"
 thiserror = "1"
 rand = "0.8"
 hex = "0.4"
